@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 import os
-from app import create_app, db
-from app.models import User, Follow, Role, Permission, Post, Comment
-from flask.ext.script import Manager, Shell
+
 from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.script import Manager, Shell
+
+from app import User, Follow, Role, Permission, Post, Comment
+from app import create_app, db
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
